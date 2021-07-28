@@ -30,26 +30,10 @@ const query = {
             fields: 'organisationUnits',
         },
     },
-    counties: {
+    districts: {
         resource: 'organisationUnits',
         params: {
             filter: 'level:eq:2',
-            fields: 'id,name',
-            paging: false,
-        },
-    },
-    subcounties: {
-        resource: 'organisationUnits',
-        params: {
-            filter: 'level:eq:3',
-            fields: 'id,name',
-            paging: false,
-        },
-    },
-    wards: {
-        resource: 'organisationUnits',
-        params: {
-            filter: 'level:eq:4',
             fields: 'id,name',
             paging: false,
         },
@@ -931,7 +915,7 @@ export const Main = () => {
                                     <CircularLoader />
                                 ) : (
                                     <Alert severity="info">
-                                        Please pick a facility / community unit
+                                        Please pick a facility / Mobile stop
                                         to proceed
                                     </Alert>
                                 )}
@@ -1212,20 +1196,20 @@ export const Main = () => {
                                                         <div className="row mb-2">
                                                             <div className="col-md-6">
                                                                 <div className="form-group focused">
-                                                                    <label htmlFor="county">
+                                                                    <label htmlFor="district">
                                                                         Usual
                                                                         residence
-                                                                        (county)
+                                                                        (district)
                                                                     </label>
                                                                     <Autocomplete
                                                                         size="small"
-                                                                        id="pick-county"
+                                                                        id="pick-district"
                                                                         disableClearable={
                                                                             true
                                                                         }
                                                                         options={
                                                                             data
-                                                                                .counties
+                                                                                .districts
                                                                                 .organisationUnits
                                                                         }
                                                                         getOptionLabel={option =>
@@ -1241,7 +1225,7 @@ export const Main = () => {
                                                                         renderInput={params => (
                                                                             <TextField
                                                                                 {...params}
-                                                                                label="Select a county"
+                                                                                label="Select a district"
                                                                                 variant="outlined"
                                                                                 fullWidth
                                                                             />
@@ -1251,7 +1235,7 @@ export const Main = () => {
                                                                             if (editing && past_Data.filter( pd => pd.name == 'ZeH4hAZ0u8F' ).length>0 ) {
                                                                                 id__ = past_Data.find( pd => pd.name == 'ZeH4hAZ0u8F' )?.value
                                                                             }
-                                                                            let r_ef = data.counties.organisationUnits
+                                                                            let r_ef = data.districts.organisationUnits
                                                                             return (
                                                                                 r_ef.find(
                                                                                     rl =>
@@ -1278,15 +1262,12 @@ export const Main = () => {
                                                                                         },
                                                                                     }
                                                                                 )
-                                                                                getOUdescs(value.id,'subcounties')
                                                                             }
                                                                         }}
                                                                     />
                                                                 </div>
                                                             </div>
                                                             
-                                                        </div>
-                                                        <div className="row mb-2">
                                                             <div className="col-md-6">
                                                                 <div className="form-group focused">
                                                                     <label htmlFor="village">
@@ -1335,7 +1316,7 @@ export const Main = () => {
                                                         <div className="row mb-2">
                                                             <div className="col-md-4">
                                                                 <div className="form-group focused">
-                                                                    <label htmlFor="county">
+                                                                    <label htmlFor="occupation">
                                                                         Occupation
                                                                     </label>
                                                                     <select
@@ -1460,7 +1441,7 @@ export const Main = () => {
                                                             </div>
                                                             <div className="col-md-4">
                                                                 <div className="form-group focused">
-                                                                    <label htmlFor="county">
+                                                                    <label htmlFor="age">
                                                                         Age{' '}
                                                                     </label>
                                                                     <input
@@ -3952,27 +3933,15 @@ export const Main = () => {
                                                                                                 Home
                                                                                                 care
                                                                                             </option>
-                                                                                            <option value="Community unit">
-                                                                                                Community
-                                                                                                unit
+                                                                                            <option value="Mobile stop">
+                                                                                                Mobile stop
                                                                                             </option>
                                                                                             <option value="Health facility">
                                                                                                 Health
                                                                                                 facility
                                                                                             </option>
-                                                                                            <option value="Sub-county / level-4 hospital">
-                                                                                                Sub-county
-                                                                                                /
-                                                                                                level-4
-                                                                                                hospital
-                                                                                            </option>
-                                                                                            <option value="County / Referral / level-5 hospital">
-                                                                                                County
-                                                                                                /
-                                                                                                Referral
-                                                                                                /
-                                                                                                level-5
-                                                                                                hospital
+                                                                                            <option value="District hospital">
+                                                                                                District hospital
                                                                                             </option>
                                                                                         </select>
                                                                                     </td>
@@ -4101,27 +4070,15 @@ export const Main = () => {
                                                                                                 Home
                                                                                                 care
                                                                                             </option>
-                                                                                            <option value="Community unit">
-                                                                                                Community
-                                                                                                unit
+                                                                                            <option value="Mobile stop">
+                                                                                                Mobile stop
                                                                                             </option>
                                                                                             <option value="Health facility">
                                                                                                 Health
                                                                                                 facility
                                                                                             </option>
-                                                                                            <option value="Sub-county / level-4 hospital">
-                                                                                                Sub-county
-                                                                                                /
-                                                                                                level-4
-                                                                                                hospital
-                                                                                            </option>
-                                                                                            <option value="County / Referral / level-5 hospital">
-                                                                                                County
-                                                                                                /
-                                                                                                Referral
-                                                                                                /
-                                                                                                level-5
-                                                                                                hospital
+                                                                                            <option value="District hospital">
+                                                                                                District hospital
                                                                                             </option>
                                                                                         </select>
                                                                                     </td>
