@@ -1,0 +1,13 @@
+{
+    "short_name": "RMS - Medical Certificate of Cause of Death",
+    "name": "rms-mccod",
+    "icons": [
+        { "16": "icd-logo.png" },
+        { "32": "icd-logo.png" },
+        { "48": "icd-logo.png" }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#133bf3",
+    "background_color": "#ffffff"
+}

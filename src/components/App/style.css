@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    background-color: rgba(0,0,10,.05);
+}
+h1 {
+    background-color:   #7EA5D0;
+  }
+h3 {
+    color : #7EA5D0;
+    font-weight: bold;
+}
