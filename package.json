@@ -1,8 +1,8 @@
 {
     "name": "rms-mccod",
-    "description": "RMS - Medical Certificate of Cause of Death",
+    "description": "ICD11 - Inpatient Mortality",
     "homepage": ".",
-    "version": "1.0.8",
+    "version": "1.0.0",
     "private": true,
     "developer": {
         "name": "Rubedo Consulting",
@@ -16,8 +16,8 @@
         "48": "icd-logo.png"
     },
     "manifest.webapp": {
-        "name": "RMS  - Medical Certificate of Cause of Death",
-        "description": "RMS - Medical Certificate of Cause of Death",
+        "name": "ICD11 - Inpatient Mortality",
+        "description": "ICD11 - Inpatient Mortality",
         "appType": "APP",
         "icons": {
             "48": "icd-logo.png"

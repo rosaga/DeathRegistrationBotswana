@@ -2,20 +2,22 @@ import React, { useEffect, useState, useRef } from 'react'
 import { useDataQuery, DataQuery } from '@dhis2/app-runtime'
 import { Card, ScreenCover, CircularLoader } from '@dhis2/ui-core'
 import { OrganisationUnitTree as Tree } from '@dhis2/ui'
-import { Alert, AlertTitle, Autocomplete } from '@material-ui/lab'
-import {Modal} from '@material-ui/core'
+import  Alert from '@material-ui/lab/Alert'
+import AlertTitle from '@material-ui/lab/AlertTitle'
+import  Autocomplete  from '@material-ui/lab/Autocomplete'
+// import Modal from '@material-ui/core/Modal'
 import './style.css'
 import IcdField from './IcdField'
 import { EventList } from './EventList'
 
 import * as ECT from '@whoicd/icd11ect'
 import '@whoicd/icd11ect/style.css'
-import { TextField } from '@material-ui/core'
+import  TextField from '@material-ui/core/TextField'
 
 import "react-datetime/css/react-datetime.css";
-import Datetime from "react-datetime";
+// import Datetime from "react-datetime";
 import moment from 'moment'
-import { set } from 'date-fns'
+// import { set } from 'date-fns'
 
 const query = {
     me: {
@@ -80,12 +82,12 @@ export const Main = () => {
     const [disableB, setDisableB] = useState(true) //true)
     const [disableC, setDisableC] = useState(true) //true)
     const [disableD, setDisableD] = useState(true) //true)
-    const todayDate = new Date
-    const date = todayDate.getFullYear() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getDate();
+    // const todayDate = new Date()
+    // const date = todayDate.getFullYear() + '-' + (todayDate.getMonth() + 1) + '-' + todayDate.getDate();
 
     const [form_Data, setform_Data] = useState({
         IzGNoQq5dYv: { name: 'IzGNoQq5dYv', value: null },
-        eventDate: { name: 'eventDate', value: date},
+        eventDate: { name: 'eventDate', value: null},
         orgUnit: { name: 'orgUnit', value: null },
         // wVHimT51y1D: { name: 'wVHimT51y1D', value: null },
         PXIfs3j5kRi: { name: 'PXIfs3j5kRi', value: null },
@@ -210,7 +212,7 @@ export const Main = () => {
                 // icdMinorVersion: "2019-08" ,
                 // icdLinearization: "mms",
                 language: 'en',
-                sourceApp: 'RMS - Medical Certificate of Cause of Death',
+                sourceApp: 'ICD11 - Inpatient Mortality',
                 wordsAvailable: false,
                 chaptersAvailable: true,
                 flexisearchAvailable: true,
@@ -295,13 +297,14 @@ export const Main = () => {
         }
         // delete fData.eventDate
         delete fData.orgUnit
-        Object.keys(fData).map(fd => {
+        Object.keys(fData).filter(r => r != "eventDate").map(fd => {
             payload['dataValues'].push({
                 dataElement: fd,
                 value: fData[fd].value,
             })
         })
         //console.log(JSON.stringify(payload))
+        // delete payload.eventDate
 
         fetch(u_rl, {
             method: (editing ? 'PUT' : 'POST'),
@@ -1023,7 +1026,7 @@ export const Main = () => {
                                                                         className="p-3"
                                                                         name="eventDate"
                                                                         id="eventDate"
-                                                                        disabled
+                                                                        
                                                                     />
                                                                 </div>
                                                             </div>

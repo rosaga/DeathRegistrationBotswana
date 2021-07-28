@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDataQuery, DataQuery } from '@dhis2/app-runtime'
 import { CircularLoader } from '@dhis2/ui-core/build/cjs/CircularLoader'
 import { ScreenCover } from '@dhis2/ui-core/build/cjs/ScreenCover'
-import { Alert } from '@material-ui/lab'
+import Alert  from '@material-ui/lab/Alert'
 
 export const EventList = ({ ou, root_url, req_headers, editEvent }) => {
     const [events, setEvents] = useState({})
@@ -71,8 +71,8 @@ export const EventList = ({ ou, root_url, req_headers, editEvent }) => {
         fetch_events(true)
         if( dlEvents && dlEvents?.headers ){
             // console.log('dlEvents')
-            const cty_inx = dlEvents?.headers.indexOf(dlEvents?.headers.find(f=>f.column=='MCCOD Usual Residence(County)'))
-            const scty_inx = dlEvents?.headers.indexOf(dlEvents?.headers.find(f=>f.column=='MCCOD Usual Residence(Sub-county)'))
+            const cty_inx = dlEvents?.headers.indexOf(dlEvents?.headers.find(f=>f.column=='MCCOD Usual Residence(District)'))
+            // const scty_inx = dlEvents?.headers.indexOf(dlEvents?.headers.find(f=>f.column=='MCCOD Usual Residence(Sub-county)'))
             const ou_inx = dlEvents?.headers.indexOf(dlEvents?.headers.find(f=>f.column=='orgUnit'))
             const ouname_inx = dlEvents?.headers.indexOf(dlEvents?.headers.find(f=>f.column=='orgUnitName'))
             
@@ -85,21 +85,21 @@ export const EventList = ({ ou, root_url, req_headers, editEvent }) => {
             const mannerod_inx = dlEvents?.headers.indexOf(dlEvents?.headers.find(f=>f.column=='MCCOD Manner of death'))
 
             let final_csv = [
-                ["County of usual residence", "Subcounty of usual residence", "Facility", "Date Of Birth", "Age", "Sex", "Date Of Death", "Underlying Cause Of Death", "Was Surgery Performed?", "Manner Of Death"]
+                ["District of usual residence",  "Facility", "Date Of Birth", "Age", "Sex", "Date Of Death", "Underlying Cause Of Death", "Was Surgery Performed?", "Manner Of Death"]
             ]
             ///////////////////
             dlEvents.rows.map( (rw,rix)=>{
                 const cty_val = rw[cty_inx]
-                const scty_val = rw[scty_inx]
+                // const scty_val = rw[scty_inx]
                 const ou_val = rw[ou_inx]
                 
                 const ouname_val = rw[ouname_inx]
                 
                 getOU(cty_val).then(t=>{
-                    getOU(scty_val).then(u=>{
+                    // getOU(scty_val).then(u=>{
                         getOU(ou_val).then(v=>{
                             let cty_name = t.name || ""
-                            let scty_name = u.name || ""
+                            // let scty_name = u.name || ""
                             let fac_name = v.name || ouname_val || ""
                             
                             let dob_name = new Date(rw[dob_inx]).toLocaleString() || ""
@@ -122,7 +122,7 @@ export const EventList = ({ ou, root_url, req_headers, editEvent }) => {
                             
                             let mannerod_name = rw[mannerod_inx] || ""
                             let one_event = [cty_name, 
-                                scty_name, 
+                                // scty_name, 
                                 fac_name, 
                                 dob_name, 
                                 age_name, 
@@ -155,7 +155,7 @@ export const EventList = ({ ou, root_url, req_headers, editEvent }) => {
                                 //----- export
                             }
                         })
-                    })
+                    // })
                 })
             })
             ///////////////////

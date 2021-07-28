@@ -1,6 +1,6 @@
 {
-    "short_name": "RMS - Medical Certificate of Cause of Death",
-    "name": "rms-mccod",
+    "short_name": "ICD11 - Inpatient Mortality",
+    "name": "icd11_inpatient_mortality",
     "icons": [
         { "16": "icd-logo.png" },
         { "32": "icd-logo.png" },
