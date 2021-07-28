@@ -106,9 +106,9 @@ export const Main = () => {
         // wVHimT51y1D: { name: 'wVHimT51y1D', value: null },
         PXIfs3j5kRi: { name: 'PXIfs3j5kRi', value: null },
         oanaPaIsqML: { name: 'oanaPaIsqML', value: null },
-        XeC3j1zWX9w: { name: 'XeC3j1zWX9w', value: null },
+        // XeC3j1zWX9w: { name: 'XeC3j1zWX9w', value: null },
         // zg3Ao8B2XYi: { name: 'zg3Ao8B2XYi', value: null },
-        gW5JXt1SZjR: { name: 'gW5JXt1SZjR', value: null },
+        // gW5JXt1SZjR: { name: 'gW5JXt1SZjR', value: null },
         ZeH4hAZ0u8F: { name: 'ZeH4hAZ0u8F', value: null },
         iDqcFv6MEwf: { name: 'iDqcFv6MEwf', value: null },
         mNZxig1nBxJ: { name: 'mNZxig1nBxJ', value: null },
@@ -1284,169 +1284,9 @@ export const Main = () => {
                                                                     />
                                                                 </div>
                                                             </div>
-                                                            <div className="col-md-6">
-                                                                <div className="form-group focused">
-                                                                    <label htmlFor="subcounty">
-                                                                        Usual
-                                                                        residence
-                                                                        (subcounty)
-                                                                    </label>
-                                                                    <Autocomplete
-                                                                        size="small"
-                                                                        id="pick-subcounty"
-                                                                        disableClearable={
-                                                                            true
-                                                                        }
-                                                                        options={ (()=>{
-                                                                            if(sub_cts && sub_cts.length>0){
-                                                                                return sub_cts
-                                                                            }else{
-                                                                                return data.subcounties.organisationUnits
-                                                                            }
-                                                                        })()
-                                                                        }
-                                                                        getOptionLabel={option =>
-                                                                            option &&
-                                                                            option.name
-                                                                                ? option.name
-                                                                                : ''
-                                                                        }
-                                                                        style={{
-                                                                            backgroundColor:
-                                                                                'white',
-                                                                        }}
-                                                                        renderInput={params => (
-                                                                            <TextField
-                                                                                {...params}
-                                                                                label="Select a subcounty"
-                                                                                variant="outlined"
-                                                                                fullWidth
-                                                                            />
-                                                                        )}
-                                                                        defaultValue={() => {
-                                                                            let id__ = past_Data.find( pd => pd.name == 'gW5JXt1SZjR' )?.value || form_Data['gW5JXt1SZjR']?.value
-                                                                            if (editing && past_Data.filter( pd => pd.name == 'gW5JXt1SZjR' ).length>0 ) {
-                                                                                id__ = past_Data.find( pd => pd.name == 'gW5JXt1SZjR' )?.value
-                                                                            }
-                                                                            let r_ef = data.subcounties.organisationUnits
-                                                                            if(sub_cts && sub_cts.length>0){
-                                                                                r_ef = sub_cts
-                                                                            }
-                                                                            return (
-                                                                                r_ef.find(
-                                                                                    rl =>
-                                                                                        rl.id ==
-                                                                                        id__
-                                                                                ) ||
-                                                                                null
-                                                                            )
-                                                                        }}
-                                                                        onChange={(
-                                                                            r,
-                                                                            value
-                                                                        ) => {
-                                                                            if (
-                                                                                value
-                                                                            ) {
-                                                                                updateValue(
-                                                                                    {
-                                                                                        target: {
-                                                                                            name:
-                                                                                                'gW5JXt1SZjR',
-                                                                                            value:
-                                                                                                value.name,
-                                                                                        },
-                                                                                    }
-                                                                                )
-                                                                                getOUdescs(value.id,'wards')
-                                                                            }
-                                                                        }}
-                                                                    />
-                                                                </div>
-                                                            </div>
+                                                            
                                                         </div>
                                                         <div className="row mb-2">
-                                                            <div className="col-md-6">
-                                                                <div className="form-group focused">
-                                                                    <label htmlFor="fname">
-                                                                        Usual
-                                                                        residence
-                                                                        (Ward)
-                                                                    </label>
-                                                                    <Autocomplete
-                                                                        size="small"
-                                                                        id="pick-ward"
-                                                                        disableClearable={
-                                                                            true
-                                                                        }
-                                                                        options={(()=>{
-                                                                            if(wds && wds.length>0){
-                                                                                console.log('filtered wards');
-                                                                                return wds
-                                                                            }else{
-                                                                                return data.wards.organisationUnits
-                                                                            }
-
-                                                                        })()
-                                                                        }
-                                                                        getOptionLabel={option =>
-                                                                            option &&
-                                                                            option.name
-                                                                                ? option.name
-                                                                                : ''
-                                                                        }
-                                                                        style={{
-                                                                            backgroundColor:
-                                                                                'white',
-                                                                        }}
-                                                                        renderInput={params => (
-                                                                            <TextField
-                                                                                {...params}
-                                                                                label="Select a ward"
-                                                                                variant="outlined"
-                                                                                fullWidth
-                                                                            />
-                                                                        )}
-                                                                        defaultValue={() => {
-                                                                            let id__ = past_Data.find( pd => pd.name == 'XeC3j1zWX9w' )?.value || form_Data['XeC3j1zWX9w']?.value
-                                                                            if ( editing && past_Data.filter( pd => pd.name == 'XeC3j1zWX9w' ).length>0 ) {
-                                                                                id__ = past_Data.find( pd => pd.name == 'XeC3j1zWX9w' )?.value
-                                                                            }
-                                                                            let r_ef = data.wards.organisationUnits
-                                                                            if(wds && wds.length>0){
-                                                                                r_ef = wds
-                                                                            }
-                                                                            return (
-                                                                                r_ef.find(
-                                                                                    rl =>
-                                                                                        rl.id ==
-                                                                                        id__
-                                                                                ) ||
-                                                                                null
-                                                                            )
-                                                                        }}
-                                                                        onChange={(
-                                                                            r,
-                                                                            value
-                                                                        ) => {
-                                                                            if (
-                                                                                value
-                                                                            ) {
-                                                                                updateValue(
-                                                                                    {
-                                                                                        target: {
-                                                                                            name:
-                                                                                                'XeC3j1zWX9w',
-                                                                                            value:
-                                                                                                value.name,
-                                                                                        },
-                                                                                    }
-                                                                                )
-                                                                            }
-                                                                        }}
-                                                                    />
-                                                                </div>
-                                                            </div>
                                                             <div className="col-md-6">
                                                                 <div className="form-group focused">
                                                                     <label htmlFor="village">
