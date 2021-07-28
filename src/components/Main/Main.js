@@ -672,7 +672,7 @@ export const Main = () => {
                 .then(js => js.json())
                 .then(rspn => {
                     setRightOuProceed(false)
-                    if (parseFloat(rspn.level) > 4) {
+                    if (parseFloat(rspn.level) > 2) {
                         setOrgUnit(rspn.id)
                         setRightOuProceed(true)
                     } else {
