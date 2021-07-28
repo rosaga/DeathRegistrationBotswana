@@ -826,7 +826,7 @@ export const Main = () => {
                     />
                     {!rightOuProceed && process.env.REACT_APP_ENV == 'dev' && (
                         <div className="flex flex-col gap-1">
-                            <button
+                            {/* <button
                                 className="button"
                                 onClick={er => {
                                     setShowLoadingOu(true)
@@ -838,20 +838,7 @@ export const Main = () => {
                                 }}
                             >
                                 Kapkomoi Disp
-                            </button>
-                            <button
-                                className="button"
-                                onClick={er => {
-                                    setShowLoadingOu(true)
-                                    setOu({
-                                        id: 'mXka8EGlJtk',
-                                        name: 'Kaptorokwa Dispensary',
-                                    })
-                                    checkLvl()
-                                }}
-                            >
-                                Kaptorokwa Disp
-                            </button>
+                            </button> */}
                         </div>
                     )}
                 </aside>
